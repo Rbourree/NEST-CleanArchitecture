@@ -9,13 +9,13 @@ import {
 } from '@nestjs/common';
 
 // Value-Objects
-import { TodoId } from '../../domain/todo-id.value-object';
-import { TodoTitle } from '../../domain/todo-title.value-object';
+import { TodoId } from '../../core/domain/todo-id.value-object';
+import { TodoTitle } from '../../core/domain/todo-title.value-object';
 
 //  Use-cases
-import { CreateTodoUseCase } from '../../application/use-cases/create-todo.use-case';
-import { ListTodoUseCase } from '../../application/use-cases/list-todo.use-case';
-import { CompleteTodoUseCase } from '../../application/use-cases/complete-todo.use-case';
+import { CreateTodoUseCase } from '../../core/application/use-cases/create-todo.use-case';
+import { ListTodoUseCase } from '../../core/application/use-cases/list-todo.use-case';
+import { CompleteTodoUseCase } from '../../core/application/use-cases/complete-todo.use-case';
 
 // DTOs
 import { CreateTodoDto } from './dto/create-todo.dto';

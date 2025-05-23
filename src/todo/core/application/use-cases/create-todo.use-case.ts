@@ -1,12 +1,9 @@
-import { TodoRepository } from '../port/todo.repository';
+import { TodoRepository } from '../todo.repository';
 import { Todo } from '../../domain/todo.entity';
 import { TodoTitle } from '../../domain/todo-title.value-object';
-import { Inject } from '@nestjs/common';
 
 export class CreateTodoUseCase {
-  constructor(
-    @Inject('TodoRepository') private readonly todoRepository: TodoRepository,
-  ) {}
+  constructor(private readonly todoRepository: TodoRepository) {}
 
   async execute(title: string): Promise<Todo> {
     const todoTitle = new TodoTitle(title);

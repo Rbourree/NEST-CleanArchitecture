@@ -33,7 +33,7 @@ export default tseslint.config(
         { type: 'domain', pattern: 'src/**/domain/**/*.ts' },
         { type: 'application', pattern: 'src/**/application/**/*.ts' },
         { type: 'infrastructure', pattern: 'src/**/infrastructure/**/*.ts' },
-        { type: 'interfaces', pattern: 'src/**/interfaces/**/*.ts' },
+        { type: 'presentation', pattern: 'src/**/presentation/**/*.ts' },
       ],
     },
     rules: {
@@ -43,7 +43,7 @@ export default tseslint.config(
           { from: ['domain'], allow: ['domain'] },
           { from: ['application'], allow: ['application', 'domain'] },
           { from: ['infrastructure'], allow: ['infrastructure', 'application', 'domain'] },
-          { from: ['interfaces'], allow: ['interfaces', 'application', 'domain'] },
+          { from: ['presentation'], allow: ['presentation', 'application', 'domain'] },
         ],
       }],
     },

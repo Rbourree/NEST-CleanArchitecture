@@ -1,13 +1,10 @@
-import { TodoRepository } from '../port/todo.repository';
+import { TodoRepository } from '../todo.repository';
 import { TodoId } from '../../domain/todo-id.value-object';
-import { Inject } from '@nestjs/common';
 
 export class CompleteTodoUseCase {
-  constructor(
-    @Inject('TodoRepository') private readonly todoRepository: TodoRepository,
-  ) {}
+  constructor(private readonly todoRepository: TodoRepository) {}
 
-  async execute(todoId: TodoId): Promise<void> {
+  async execute(todoId: TodoId): Promise<boolean> {
     const todo = await this.todoRepository.findById(todoId);
     if (!todo) {
       throw new Error('Todo not found');
@@ -15,5 +12,6 @@ export class CompleteTodoUseCase {
 
     todo.markAsDone();
     await this.todoRepository.save(todo);
+    return true;
   }
 }

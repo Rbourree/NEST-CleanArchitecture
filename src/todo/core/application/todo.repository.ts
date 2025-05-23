@@ -1,5 +1,5 @@
-import { Todo } from '../../domain/todo.entity';
-import { TodoId } from '../../domain/todo-id.value-object';
+import { Todo } from '../domain/todo.entity';
+import { TodoId } from '../domain/todo-id.value-object';
 
 export abstract class TodoRepository {
   abstract save(todo: Todo): Promise<Todo>;
