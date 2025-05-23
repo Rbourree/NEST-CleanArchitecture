@@ -16,19 +16,19 @@ describe('ListTodoUseCase', () => {
 
   it('should return a list of todos', async () => {
     const todos: Todo[] = [
-      { 
-        id: '1', 
-        title: 'Todo 1', 
-        isDone: false, 
-        markAsDone: jest.fn(), 
-        updateTitle: jest.fn() 
+      {
+        id: '1',
+        title: 'Todo 1',
+        isDone: false,
+        markAsDone: jest.fn(),
+        updateTitle: jest.fn(),
       },
-      { 
-        id: '2', 
-        title: 'Todo 2', 
-        isDone: true, 
-        markAsDone: jest.fn(), 
-        updateTitle: jest.fn() 
+      {
+        id: '2',
+        title: 'Todo 2',
+        isDone: true,
+        markAsDone: jest.fn(),
+        updateTitle: jest.fn(),
       },
     ];
 

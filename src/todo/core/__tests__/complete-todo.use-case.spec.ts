@@ -26,7 +26,7 @@ describe('CompleteTodoUseCase', () => {
     const result = await completeTodoUseCase.execute(todoId);
 
     expect(todoRepository.findById).toHaveBeenCalledWith(todoId);
-    expect(todoRepository.save).toHaveBeenCalledWith(todo);    
+    expect(todoRepository.save).toHaveBeenCalledWith(todo);
     expect(result).toBe(true);
   });
 
@@ -34,7 +34,9 @@ describe('CompleteTodoUseCase', () => {
     todoRepository.findById.mockResolvedValue(null);
     const todoId: TodoId = new TodoId('1');
 
-    await expect(completeTodoUseCase.execute(todoId)).rejects.toThrow('Todo not found');
+    await expect(completeTodoUseCase.execute(todoId)).rejects.toThrow(
+      'Todo not found',
+    );
     expect(todoRepository.findById).toHaveBeenCalledWith(todoId);
     expect(todoRepository.save).not.toHaveBeenCalled();
   });

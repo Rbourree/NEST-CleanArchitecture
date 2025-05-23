@@ -22,7 +22,9 @@ describe('CreateTodoUseCase', () => {
 
     const result = await createTodoUseCase.execute(newTodo.title);
 
-    expect(todoRepository.save).toHaveBeenCalledWith(expect.objectContaining(newTodo));
+    expect(todoRepository.save).toHaveBeenCalledWith(
+      expect.objectContaining(newTodo),
+    );
     expect(result).toEqual(savedTodo);
   });
 
@@ -31,7 +33,11 @@ describe('CreateTodoUseCase', () => {
 
     todoRepository.save.mockRejectedValue(new Error('Save failed'));
 
-    await expect(createTodoUseCase.execute(newTodo.title)).rejects.toThrow('Save failed');
-    expect(todoRepository.save).toHaveBeenCalledWith(expect.objectContaining(newTodo));
+    await expect(createTodoUseCase.execute(newTodo.title)).rejects.toThrow(
+      'Save failed',
+    );
+    expect(todoRepository.save).toHaveBeenCalledWith(
+      expect.objectContaining(newTodo),
+    );
   });
 });

@@ -9,6 +9,7 @@ export default tseslint.config(
   {
     ignores: ['eslint.config.mjs', 'dist/**/*', 'node_modules/**/*'],
   },
+  
   eslint.configs.recommended,
   ...tseslint.configs.recommendedTypeChecked,
   eslintPluginPrettierRecommended,
@@ -37,6 +38,7 @@ export default tseslint.config(
       ],
     },
     rules: {
+      "@typescript-eslint/unbound-method": "off",
       'boundaries/element-types': ['error', {
         default: 'disallow',
         rules: [
